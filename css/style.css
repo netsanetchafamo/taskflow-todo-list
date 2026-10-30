@@ -1,0 +1,640 @@
+
+/* ==================================
+   1. GENERAL SETTINGS
+================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #5145e5;
+    --primary-dark: #3e35bd;
+    --background: #f5f6fc;
+    --white: #ffffff;
+    --text: #25264b;
+    --muted: #85869a;
+    --border: #e8e9f1;
+    --danger: #ef4444;
+    --success: #16a34a;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ==================================
+   2. MAIN LAYOUT
+================================== */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==================================
+   3. SIDEBAR
+================================== */
+
+.sidebar {
+    width: 245px;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 55px;
+}
+
+.brand-icon {
+    background: var(--primary);
+    color: white;
+    padding: 7px 11px;
+    border-radius: 9px;
+}
+
+.sidebar-label {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.filter-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-btn {
+    text-align: left;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #66677a;
+    transition: 0.2s;
+}
+
+.filter-btn span {
+    margin-right: 10px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #eeedff;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.sidebar-note {
+    background: #f1f0ff;
+    padding: 18px;
+    border-radius: 10px;
+    margin-top: auto;
+    line-height: 1.6;
+}
+
+.sidebar-note h3 {
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.sidebar-note p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.sidebar-footer {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+/* ==================================
+   4. MAIN CONTENT
+================================== */
+
+.main-content {
+    flex: 1;
+    padding: 35px 45px;
+    max-width: 1250px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.welcome-text {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--primary);
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+
+.topbar h1 {
+    font-size: 30px;
+}
+
+.today-date {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ==================================
+   5. STATISTICS
+================================== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.stat-card p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.stat-card h2 {
+    font-size: 29px;
+    margin: 12px 0 5px;
+    color: var(--primary);
+}
+
+.stat-card span {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* ==================================
+   6. PROGRESS BAR
+================================== */
+
+.progress-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 25px;
+}
+
+.progress-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.progress-heading h3 {
+    font-size: 15px;
+}
+
+.progress-heading span {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.progress-track {
+    height: 9px;
+    background: #eeeeF5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--primary);
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+/* ==================================
+   7. TASK FORM
+================================== */
+
+.task-form-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.task-form-section h2,
+.task-heading h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    outline: none;
+    background: white;
+    color: var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.search-box input:focus {
+    border-color: var(--primary);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: white;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.primary-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* ==================================
+   8. TASK LIST AND SEARCH
+================================== */
+
+.task-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.task-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clear-btn {
+    border: none;
+    background: transparent;
+    color: var(--danger);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.clear-btn:hover {
+    text-decoration: underline;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0 13px;
+    margin-bottom: 22px;
+}
+
+.search-box span {
+    font-size: 23px;
+    color: var(--muted);
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 13px 0;
+    flex: 1;
+    min-width: 0;
+}
+
+.task-list-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+#taskList {
+    list-style: none;
+}
+
+/* ==================================
+   9. INDIVIDUAL TASK
+================================== */
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    margin-bottom: 11px;
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.task-checkbox {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.task-details {
+    min-width: 0;
+}
+
+.task-text {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.priority {
+    font-weight: bold;
+}
+
+.priority.high {
+    color: #dc2626;
+}
+
+.priority.medium {
+    color: #d97706;
+}
+
+.priority.low {
+    color: #16a34a;
+}
+
+.overdue {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+.completed .task-text {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-actions {
+    display: flex;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.action-btn {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.edit-btn {
+    background: #eeedff;
+    color: var(--primary);
+}
+
+.delete-btn {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.action-btn:hover {
+    opacity: 0.75;
+}
+
+/* ==================================
+   10. EMPTY MESSAGE
+================================== */
+
+.empty-message {
+    display: none;
+    text-align: center;
+    padding: 40px 15px;
+}
+
+.empty-icon {
+    width: 55px;
+    height: 55px;
+    background: #eeedff;
+    color: var(--primary);
+    display: grid;
+    place-items: center;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    font-size: 25px;
+}
+
+.empty-message h3 {
+    margin-bottom: 8px;
+}
+
+.empty-message p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ==================================
+   11. FOOTER
+================================== */
+
+.footer {
+    text-align: center;
+    padding: 30px 10px 10px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* ==================================
+   12. RESPONSIVE DESIGN
+================================== */
+
+@media (max-width: 850px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .main-content {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+        margin-bottom: 18px;
+    }
+
+    .sidebar-label,
+    .sidebar-note,
+    .sidebar-footer {
+        display: none;
+    }
+
+    .filter-nav {
+        flex-direction: row;
+    }
+
+    .filter-btn {
+        flex: 1;
+        text-align: center;
+        padding: 10px 5px;
+        font-size: 12px;
+    }
+
+    .filter-btn span {
+        margin-right: 3px;
+    }
+
+    .main-content {
+        padding: 22px 15px;
+    }
+
+    .topbar h1 {
+        font-size: 24px;
+    }
+
+    .stats-grid {
+        gap: 9px;
+    }
+
+    .stat-card {
+        padding: 13px;
+    }
+
+    .stat-card h2 {
+        font-size: 23px;
+    }
+
+    .stat-card p {
+        font-size: 11px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .task-form-section,
+    .task-section {
+        padding: 18px;
+    }
+
+    .task-item {
+        align-items: flex-start;
+    }
+
+    .task-actions {
+        flex-direction: column;
+    }
+
+    .today-date {
+        font-size: 11px;
+        text-align: right;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .task-heading {
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

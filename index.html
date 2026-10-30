@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="TaskFlow is a simple and professional task management application.">
+
+    <title>TaskFlow | Smart Task Manager</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <span class="brand-icon">✓</span>
+                <span>TaskFlow</span>
+            </div>
+
+            <p class="sidebar-label">WORKSPACE</p>
+
+            <nav class="filter-nav" aria-label="Task filters">
+
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">
+                    <span>▦</span> All Tasks
+                </button>
+
+                <button class="filter-btn" data-filter="active" aria-pressed="false">
+                    <span>◷</span> Active
+                </button>
+
+                <button class="filter-btn" data-filter="completed" aria-pressed="false">
+                    <span>✓</span> Completed
+                </button>
+
+            </nav>
+
+            <div class="sidebar-note">
+                <h3>Stay productive!</h3>
+                <p>Small progress every day leads to big results.</p>
+            </div>
+
+            <div class="sidebar-footer">
+                TaskFlow v1.0
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="welcome-text">YOUR PERSONAL WORKSPACE</p>
+                    <h1>My Tasks</h1>
+                </div>
+
+                <div class="today-date" id="todayDate"></div>
+            </header>
+
+            <!-- Statistics -->
+            <section class="stats-grid" aria-label="Task statistics">
+
+                <article class="stat-card">
+                    <p>Total Tasks</p>
+                    <h2 id="totalTasks">0</h2>
+                    <span>All your tasks</span>
+                </article>
+
+                <article class="stat-card">
+                    <p>Completed</p>
+                    <h2 id="completedTasks">0</h2>
+                    <span>Successfully finished</span>
+                </article>
+
+                <article class="stat-card">
+                    <p>Remaining</p>
+                    <h2 id="remainingTasks">0</h2>
+                    <span>Tasks to complete</span>
+                </article>
+
+            </section>
+
+            <!-- Progress -->
+            <section class="progress-section">
+
+                <div class="progress-heading">
+                    <h3>Overall Progress</h3>
+                    <span id="progressPercentage">0%</span>
+                </div>
+
+                <div class="progress-track">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+
+            </section>
+
+            <!-- Add Task -->
+            <section class="task-form-section">
+
+                <h2>Add a New Task</h2>
+
+                <form id="taskForm">
+
+                    <div class="form-group">
+                        <label for="taskInput">Task Name</label>
+
+                        <input
+                            type="text"
+                            id="taskInput"
+                            placeholder="What do you need to do?"
+                            maxlength="120"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="taskDate">Due Date</label>
+
+                            <input type="date" id="taskDate">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taskPriority">Priority</label>
+
+                            <select id="taskPriority">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="primary-btn">
+                        + Add Task
+                    </button>
+
+                </form>
+
+            </section>
+
+            <!-- Search and Filters -->
+            <section class="task-section">
+
+                <div class="task-heading">
+                    <h2>My Task List</h2>
+
+                    <button id="clearCompleted" class="clear-btn" type="button">
+                        Clear Completed
+                    </button>
+                </div>
+
+                <div class="search-box">
+                    <span>⌕</span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search your tasks..."
+                        aria-label="Search tasks"
+                    >
+                </div>
+
+                <div class="task-list-header">
+                    <span>Your Activities</span>
+                    <span id="taskCount">0 tasks</span>
+                </div>
+
+                <ul id="taskList" aria-live="polite"></ul>
+
+                <div id="emptyMessage" class="empty-message">
+                    <div class="empty-icon">✓</div>
+                    <h3>No tasks found</h3>
+                    <p>Add a new task or change your search and filters.</p>
+                </div>
+
+            </section>
+
+            <footer class="footer">
+                <p>© 2026 TaskFlow. Built while learning web development.</p>
+                <p>Designed and developed by <strong>Netsanet Chafamo</strong></p>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
